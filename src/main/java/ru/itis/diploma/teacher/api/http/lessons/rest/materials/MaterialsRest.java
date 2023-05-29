@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import ru.itis.diploma.teacher.domain.materials.models.Document;
 
 import java.util.List;
 
@@ -18,9 +19,9 @@ public interface MaterialsRest {
 
     @GetMapping(path = "/{id}")
     @Operation(description = "Возвращает конкретный учебно-методический материал")
-    ResponseEntity<String> get(@PathVariable Long id);
+    ResponseEntity<Document> get(@PathVariable Long id);
 
     @GetMapping
     @Operation(description = "Возвращает список учебно-методических материалов")
-    ResponseEntity<List<String>> list(@RequestParam(required = false) List<String> ids);
+    ResponseEntity<List<Document>> list(@RequestParam(required = false) List<Long> ids);
 }

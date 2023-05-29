@@ -20,6 +20,9 @@ public class FileEntity {
     @Column(name = "path", nullable = false)
     private String filePath;
 
+    @Column(name = "title", nullable = false)
+    private String title;
+
     @Column(name = "volume", nullable = false)
     private Long volume;
 

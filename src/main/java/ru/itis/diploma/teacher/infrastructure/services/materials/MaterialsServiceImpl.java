@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.itis.diploma.teacher.domain.materials.models.Document;
 import ru.itis.diploma.teacher.domain.materials.services.MaterialsService;
+import ru.itis.diploma.teacher.infrastructure.converters.materials.DocumentToDomainConverter;
 import ru.itis.diploma.teacher.infrastructure.persistence.repositories.materials.DocumentsRepository;
 
 import java.util.List;
@@ -12,15 +13,17 @@ import java.util.List;
 public class MaterialsServiceImpl implements MaterialsService {
 
     private final DocumentsRepository documentsRepository;
+    private final DocumentToDomainConverter documentToDomainConverter;
 
     @Autowired
-    public MaterialsServiceImpl(DocumentsRepository documentsRepository) {
+    public MaterialsServiceImpl(DocumentsRepository documentsRepository, DocumentToDomainConverter documentToDomainConverter) {
         this.documentsRepository = documentsRepository;
+        this.documentToDomainConverter = documentToDomainConverter;
     }
 
     @Override
     public Document get(Long id) {
-        return null;
+        return documentToDomainConverter.convert(documentsRepository.findById(id).orElse(null));
     }
 
     @Override
