@@ -1,4 +1,4 @@
-package ru.itis.diploma.teacher.api.http.portfolio.teachers;
+package ru.itis.diploma.teacher.api.http.lessons.rest.portfolio.teachers;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;

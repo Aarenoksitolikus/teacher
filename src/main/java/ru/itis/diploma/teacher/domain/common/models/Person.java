@@ -4,11 +4,8 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter
-@Setter
-@Builder
 public abstract class Person {
-    private CommonInfo commonInfo;
+    protected Person.CommonInfo commonInfo;
 
     @Getter
     @Setter
@@ -17,5 +14,6 @@ public abstract class Person {
         private String lastName;
         private String firstName;
         private String secondName;
+
     }
 }
